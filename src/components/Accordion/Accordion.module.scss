@@ -1,0 +1,79 @@
+.accordion {
+    width: 400px;
+}
+
+.accordionItem {
+    // border: 1px solid #514e4e;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+//Accordion Header 
+.accordionHeader {
+    background-color: #403a49;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    color: #fff;
+
+    &.active {
+        border-bottom: 1px solid #4b4848;
+        background-color: #8f50e7;
+    }
+
+    .chevron {
+        transition: rotate .3s ease-in-out;
+    }
+    
+    .chevronActive {
+        animation: forwards .3s rotate;
+    }
+
+    .chevronInactive {
+        animation: forwards .3s rotateReverse;
+    }
+}
+
+// Accordion Body
+.accordionBody {
+    height: 0;
+    position: relative;
+    max-height: 0vh;
+    overflow: hidden;
+    transition: max-height .8s ease-in-out;
+    background-color: #4b4848;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    z-index: -1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #fff;
+
+    &.active {
+        height: auto;
+        max-height: 100vh;
+        padding: 20px;
+        margin-bottom: 0;
+    }
+}
+
+// Keyframes
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotateReverse {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
